@@ -16,6 +16,23 @@ export function Main() {
           </a>
         </motion.div>
         <Search />
+        <div className="text-xl text-zinc-500 m-4">
+          {results && results.items.length > 0 ? (
+            <div>
+              <p>
+                <span className="text-zinc-300 font-semibold">
+                  {results.total_count}
+                </span>{' '}
+                Results for{' '}
+                <span className="text-zinc-300">&quot;{term}&quot;</span>
+              </p>
+            </div>
+          ) : (
+            <>
+              <img src={gitLogo} alt="Invertocat" className="w-32 h-32 m-10" />
+            </>
+          )}{' '}
+        </div>
         <CardGrid />
       </main>
     </div>
