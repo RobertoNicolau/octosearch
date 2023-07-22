@@ -26,7 +26,9 @@ export function Card({ repo }: IProps) {
               className="h-8 w-8 rounded-sm"
             />
             <div className="flex flex-col leading-tight">
-              <h2 className="text-zinc-100 font-semibold">{repo.name}</h2>
+              <h2 className="text-zinc-100 font-semibold whitespace-nowrap max-w-[17ch] overflow-hidden overflow-ellipsis">
+                {repo.name}
+              </h2>
               <h3 className="text-zinc-300 text-sm">{repo.owner.login}</h3>
             </div>
           </a>

@@ -1,16 +1,19 @@
 import { Card } from './Card'
-import { Suspense, useContext } from 'react'
+import { useContext } from 'react'
 import AppContext from '../contexts/AppContext'
+import { Paginator } from './Paginator'
 
 export function CardGrid() {
   const { results } = useContext(AppContext)
   return (
-    <Suspense fallback={<div className="bg-red-500">Loading...</div>}>
+    <>
+      <Paginator />
       <div className="m-6 grid gap-8 lg:grid-cols-4 sm:grid-cols-2 grid-cols-1 ">
         {results?.items.map((item) => (
-          <Card key={item.id} repo={item} />
+          <Card repo={item} key={item.id} />
         ))}
       </div>
-    </Suspense>
+      <Paginator />
+    </>
   )
 }

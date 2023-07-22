@@ -2,7 +2,7 @@ import gitLogo from '../assets/github-mark-white.png'
 import { motion } from 'framer-motion'
 import { Search } from '../components/Search'
 import { CardGrid } from '../components/CardGrid'
-import { useContext } from 'react'
+import { Suspense, useContext } from 'react'
 import AppContext from '../contexts/AppContext'
 
 export function Main() {
@@ -33,7 +33,9 @@ export function Main() {
             </>
           )}{' '}
         </div>
-        <CardGrid />
+        <Suspense fallback={<p className="m-10 bg-red-700">Carregando...</p>}>
+          <CardGrid />
+        </Suspense>
       </main>
     </div>
   )

@@ -1,16 +1,16 @@
 import { useContext } from 'react'
 import { searchRepositories } from '../services/api'
 import AppContext from '../contexts/AppContext'
+
 export function Search() {
   const { newSearch, setNewSearch, setResults, setTerm } =
     useContext(AppContext)
 
   async function search(param: string) {
     if (param.length <= 2) {
-      return console.log('Insira pelo menos 3 caracteres')
+      return console.log('Type more than 2 characters')
     }
     const response = await searchRepositories({ q: param })
-    setInterval(() => {})
     setTerm(newSearch)
     setResults(response)
   }
@@ -29,7 +29,7 @@ export function Search() {
         type="button"
         onClick={() => search(newSearch)}
       >
-        Pesquisar
+        Search
       </button>
     </div>
   )
